@@ -13,3 +13,7 @@ class tagSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
       
+class tagSerializerPost(serializers.ModelSerializer):
+    class Meta:
+        model = tag
+        fields = ['tag'] 

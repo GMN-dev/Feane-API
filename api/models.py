@@ -5,11 +5,11 @@ from .utils import upload_image_formater
 
 # Create your models here.
 class tag(models.Model):
+    status = models.BooleanField(default=True)
     tag = models.CharField(max_length=50)
     
     class Meta:
         db_table = "tbl_tag"
-        verbose_name_plural = ("s")
 
     def __str__(self):
         return self.tag
@@ -17,7 +17,8 @@ class tag(models.Model):
 
 
 
-class menu(models.Model): 
+class menu(models.Model):
+    status = models.BooleanField(default=True)
     image = models.ImageField(upload_to=upload_image_formater, blank=True, null=True)
     name = models.CharField(max_length=50)
     description = models.TextField()

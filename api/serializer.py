@@ -1,12 +1,6 @@
 from rest_framework import serializers
 from .models import menu, tag
 
-class menuSerializer(serializers.ModelSerializer):   
-    class Meta:
-        model = menu
-        fields = '__all__'
-
-
 class tagSerializer(serializers.ModelSerializer):
     class Meta:
         model = tag
@@ -16,4 +10,12 @@ class tagSerializer(serializers.ModelSerializer):
 class tagSerializerPost(serializers.ModelSerializer):
     class Meta:
         model = tag
-        fields = ['tag'] 
+        fields = ['name'] 
+
+
+class menuSerializer(serializers.ModelSerializer):   
+    tag = tagSerializerPost()
+
+    class Meta:
+        model = menu
+        fields = '__all__'

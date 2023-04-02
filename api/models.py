@@ -6,13 +6,13 @@ from .utils import upload_image_formater
 # Create your models here.
 class tag(models.Model):
     status = models.BooleanField(default=True)
-    tag = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     
     class Meta:
         db_table = "tbl_tag"
 
     def __str__(self):
-        return self.tag
+        return self.name
 
 
 
